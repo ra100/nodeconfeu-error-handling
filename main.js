@@ -1,4 +1,5 @@
-const addErrorHandler = require('./error_handler')
+const addErrorHandler = require('./errorHandler')
+const {BadRequestError} = require('./errors/userFacing')
 
 const fastify = require('fastify')({
   logger: true
@@ -10,18 +11,14 @@ const opts = {
     body: {
       type: 'object',
       properties: {
-        someKey: { type: 'string' },
-        someOtherKey: { type: 'number' }
+        name: { type: 'string' },
+        speed: { type: 'number' }
       },
-      required: ['someKey'],
+      required: ['name', 'speed'],
       additionalProperties: false
     }
   }
 }
-
-// fastify.register(require('fastify-jwt'), {
-//   secret: process.env.SECRET || 'youshouldspecifyalongsecret'
-// })
 
 fastify.get('/', async (request, reply) => {
   return { hello: 'world' }

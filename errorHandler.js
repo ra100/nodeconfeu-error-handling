@@ -1,8 +1,15 @@
+const errors = require('./errors/baseClass')
+
 function addErrorHandler(fastify) {
   fastify.setErrorHandler((error, request, reply) => {
     fastify.log.debug(`Request url: `, request.req.url)
     fastify.log.debug(`Payload: `, request.body)
     fastify.log.error(`Error occurred: `, error)
+
+    if (error instanceof errors.UserFacingError) {
+      reply.status(error.statusCode).send({ message: error.message })
+      return
+    }
 
     reply.status(500).send({ message: 'Error occurred during request' })
   })
