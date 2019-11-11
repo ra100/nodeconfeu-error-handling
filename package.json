@@ -1,0 +1,14 @@
+{
+  "name": "nodeconf-eu-error-handling",
+  "version": "0.0.1",
+  "description": "NodeConf.eu Error Handling workshop",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ra100",
+  "license": "WTFPL",
+  "dependencies": {
+    "fastify": "^2.10.0"
+  }
+}
