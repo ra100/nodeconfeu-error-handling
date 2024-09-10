@@ -10,6 +10,6 @@
   "author": "ra100",
   "license": "WTFPL",
   "dependencies": {
-    "fastify": "^2.15.1"
+    "fastify": "^4.28.1"
   }
 }
